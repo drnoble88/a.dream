@@ -20,8 +20,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "start": "react-scripts start",
     "start:backend": "nodemon index.js",
-    "start": "babel-node --extensions .mjs database.mjs",
+    "start:database": "babel-node --extensions .mjs database.mjs",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import Nav from "./Nav.js";
-import Destination from "./Destination";
+import Destination from "./Destination.js";
 
 function App() {
   return (

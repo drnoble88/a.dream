@@ -2,8 +2,8 @@ import express from "express";
 import mysql from "mysql";
 import dotenv from 'dotenv';
 dotenv.config();
-const app = express();
 
+const app = express();
 const con = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -39,6 +39,7 @@ app.get("/places",(req,res)=>{
     return res.json(data)
   })
 })
+
 app.use(express.json());
 app.post("/places", (req, res) => {
   // Retrieve the values from the request body or other source

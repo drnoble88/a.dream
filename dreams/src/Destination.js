@@ -6,11 +6,12 @@ import axios from 'axios';
 function Destination() {
     const [Image, setImage] = useState("")
     const [Figname, setFigname] = useState("London")
+    const [Place, setPlace]= useState("")
 
     const fetchImage = {
         method: 'GET',
         url: 'http://localhost:8000/destination',
-        params: { query: Figname },
+        // params: { query: Figname },
     }
 
     useEffect(() =>{
@@ -22,6 +23,22 @@ function Destination() {
         })
     }
     fetchEvent2()
+}, []);
+
+const fetchPlace = {
+    method: 'GET',
+    url: 'http://localhost:8800/places',
+}
+
+useEffect(() =>{
+    const fetchPlace = async () => {
+    axios.get(fetchPlace.url).then((response) => {
+        setPlace(response.data[0].name)
+    }).catch((error) => {
+        console.error(error)
+    })
+}
+fetchPlace()
 }, []);
 
     return (
