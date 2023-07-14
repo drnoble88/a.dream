@@ -1,6 +1,7 @@
 import express from "express";
 import mysql from "mysql";
 import dotenv from 'dotenv';
+import cors from "cors";
 dotenv.config();
 
 const app = express();
@@ -31,7 +32,7 @@ con.connect(function (err) {
 //     startServer();
 //   });
 // }
-
+app.use(cors())
 app.get("/places",(req,res)=>{
   const q="SELECT * FROM Destinations"
   con.query(q, (err,data)=>{

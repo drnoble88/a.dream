@@ -16,7 +16,7 @@ app.get('/destination', (req, res) => {
     const Figname = req.query
     const fetchData = {
         method: 'GET',
-        url: `https://api.pexels.com/v1/search?query=Paris`,
+        url: `https://api.pexels.com/v1/search?query=London`,
         // params: {query: Figname} ,
         headers: {
             "Authorization": process.env.REACT_APP_API_KEY,

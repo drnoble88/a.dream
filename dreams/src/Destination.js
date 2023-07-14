@@ -5,7 +5,9 @@ import axios from 'axios';
 
 function Destination() {
     const [Image, setImage] = useState("")
-    const [Figname, setFigname] = useState("London")
+    const [Image2, setImage2]= useState("")
+    const [Place2, setPlace2]= useState("")
+    const [Figname, setFigname] = useState("")
     const [Place, setPlace]= useState("")
 
     const fetchImage = {
@@ -17,7 +19,7 @@ function Destination() {
     useEffect(() =>{
         const fetchEvent2 = async () => {
         axios.get(fetchImage.url).then((response) => {
-            setImage(response.data)
+            // setImage(response.data)
         }).catch((error) => {
             console.error(error)
         })
@@ -25,15 +27,19 @@ function Destination() {
     fetchEvent2()
 }, []);
 
-const fetchPlace = {
+
+const fetchPlace1 = {
     method: 'GET',
     url: 'http://localhost:8800/places',
 }
-
 useEffect(() =>{
     const fetchPlace = async () => {
-    axios.get(fetchPlace.url).then((response) => {
-        setPlace(response.data[0].name)
+    axios.get(fetchPlace1.url).then((response) => {
+        setPlace(response.data[11].name)
+        setImage(response.data[11].picture)
+        setImage2(response.data[10].picture)
+        setPlace2(response.data[10].name)
+        console.log(Place)
     }).catch((error) => {
         console.error(error)
     })
@@ -46,7 +52,7 @@ fetchPlace()
 
 <div>
 
-<h2 className="destination-vibes">Destination Vibes</h2>
+<h2 className="destination-vibes">Destination Vibes: {Place}, {Place2} </h2>
 <div id="myCarousel" className="carousel slide">
             <div className="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
@@ -58,7 +64,7 @@ fetchPlace()
                 <img src={Image} className="d-block" id="first-phil" alt="..."/>
               </div>
               <div className="carousel-item">
-                <img src="./philhub2.png" className="d-block" id="second-phil" alt="..."/>
+                <img src={Image2} className="d-block" id="second-phil" alt="..."/>
               </div>
               <div className="carousel-item">
                 <img src="./philhub3.png" className="d-block" alt="..."/>
