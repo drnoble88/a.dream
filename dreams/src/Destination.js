@@ -10,7 +10,7 @@ function Destination() {
     const fetchImage = {
         method: 'GET',
         url: 'http://localhost:8000/destination',
-        query: Figname,
+        params: { query: Figname },
     }
 
     useEffect(() =>{
